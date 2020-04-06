@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD mAPPER 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="boardMapper">
+<select id="list" resultType="vote.domain.VoteDto">
+select votenum, title, subtitle, empno from vote order by votenum desc
+</select>
+
+</mapper>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD mAPPER 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="vote">
+
+<!-- 투표 리스트 -->
+<select id="list" resultType="vote.domain.VoteDto">
+select * from vote order by votenum desc
+</select>
+
+
+<!-- 투표 작성하기 -->
+<insert id="insert">
+insert into vote(title, subtitle, empno)
+values(#{title}, #{subtitle}, #{empno})
+</insert>
+
+
+<!-- 투표글 조회 -->
+<select id="read" parameterType="int" resultType="vote.domain.VoteDto">
+select title, subtitle, empno
+from vote
+where votenum=#{votenum}
+</select>
+
+
+</mapper>
