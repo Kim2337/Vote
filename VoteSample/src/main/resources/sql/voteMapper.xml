@@ -13,14 +13,14 @@ select * from vote order by votenum desc
 
 <!-- 투표 작성하기 -->
 <insert id="insert">
-insert into vote(title, subtitle, empno)
-values(#{title}, #{subtitle}, #{empno})
+insert into vote(title, subtitle, content, empno)
+values(#{title}, #{subtitle},#{content}, #{empno})
 </insert>
 
 
 <!-- 투표글 조회 -->
 <select id="read" parameterType="int" resultType="vote.domain.VoteDto">
-select title, subtitle, empno
+select title, subtitle, content, empno
 from vote
 where votenum=#{votenum}
 </select>

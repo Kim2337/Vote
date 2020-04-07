@@ -5,7 +5,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<a href="jsp/vote/voteList">투표 게시판</a><br>
 <a href="vote/list.do">투표 게시판</a><br>
 </body>
 </html>

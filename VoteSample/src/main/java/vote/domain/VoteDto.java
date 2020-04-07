@@ -5,6 +5,16 @@ public class VoteDto {
 	String title; 
 	String subtitle;
 	int empno;
+	String content;
+	
+	
+	
+	public String getContent() {
+		return content;
+	}
+	public void setContent(String content) {
+		this.content = content;
+	}
 	public int getVotenum() {
 		return votenum;
 	}
@@ -29,13 +39,5 @@ public class VoteDto {
 	public void setEmpno(int empno) {
 		this.empno = empno;
 	}
-	
-	 @Override public String toString() { 
-		 return "VoteDto [votenum=" + votenum +
-	 ", title=" + title + ", subtitle=" + subtitle + ", empno=" + empno + "]"; }
-	 
-	
-	
-	
 	
 }

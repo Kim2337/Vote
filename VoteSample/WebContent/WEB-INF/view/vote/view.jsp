@@ -3,39 +3,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>투표 작성</title>
+<title>투표 현황</title>
+</head>
 
-<script type="text/javascript">
-  $(document).ready(function(){
-	  $("#btnUpdate").click(function(){
-		  var title = $("#title").val();
-		  var subtitle = $("#subtitle").val();
-		  var empno = $("#empno").val();
-		  if(title == ""){
-			  alert("제목을 입력하세요");
-			  document.form1.title.focus();
-			  return;
-			  }
-		  document.form1.action="${path}/vote/update.do"
-			  document.form1.submit();
-		  });
-  });
-
+<script>
+$(document).ready(function(){
+	$("#btnVote").click(function(){
+		location.href="vote/voteform.do";
+		});
+});
 </script>
 
-</head>
 <body>
 <h2>투표 현황</h2>
-<form name="form1" method="post">
-<div>제목 
- <input name="title" id="title" size="80" value="${dto.title }"/>
-</div>
+<table border="1" width="400">
+ <tr>
+   <td colspan="4"> 
+   <b> Q : ${dto.title}</b><br>
+   <b> ${dto.subtitle}</b></td>
+ </tr>
+ <tr>
+ <td >
+   <b>${dto.content }</b><br>
+ </td>
+ </tr>
+</table>
 
-<div>부제목 
- <input name="subtitle" id="subtitle" size="80" value="${dto.subtitle }"/>
-</div>
-
-</form>
-
+<button type="button" id="btnVote">투표하기</button>
 </body>
 </html>

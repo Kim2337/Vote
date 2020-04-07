@@ -24,14 +24,14 @@ import vote.domain.VoteDto;
 import vote.service.VoteService;
 
 @Controller
-@RequestMapping("/vote/*")
+@RequestMapping("/vote")
 public class VoteController {
 	
 	@Autowired
 	VoteService service;
 	
 	//투표 목록 
-	@RequestMapping("list.do")
+	@RequestMapping("/list.do")
 	public ModelAndView list() throws Exception{
 		List<VoteDto> list = service.list();
 		ModelAndView mav = new ModelAndView();
@@ -42,21 +42,21 @@ public class VoteController {
 	
 	
 	//투표 작성화면 
-	@RequestMapping(value="write.do", method = RequestMethod.GET)
+	@RequestMapping(value="vote/write.do", method = RequestMethod.GET)
 	public String write() throws Exception{
 		return "vote/write";
 	}
 	
-	//투표글 작성처리 
-	@RequestMapping(value="insert.do", method = RequestMethod.POST)
+	//투표글 작성처리  
+	@RequestMapping(value="vote/insert.do", method = RequestMethod.POST)
 	public String insert(@ModelAttribute VoteDto dto) throws Exception{
 		service.write(dto);
 		return "redirect:list.do";
 	}
 
 
-	//투표글 상세조회 
-	@RequestMapping(value="view.do", method = RequestMethod.GET)
+	//투표 현황
+	@RequestMapping(value="vote/view.do", method = RequestMethod.GET)
 	public ModelAndView view(@RequestParam int votenum, HttpSession session) throws Exception{
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("vote/view");
@@ -65,27 +65,6 @@ public class VoteController {
 	}
 	
 	
-	public void setService(VoteService service) {
-		this.service = service;
-	}
-	
-	
-	
-
-	
-	/*
-	 * @RequestMapping(value = "/voteList", method = RequestMethod.GET)
-	 * 
-	 * @ResponseBody public void voteList(HttpServletResponse resp) throws Exception
-	 * { List<VoteDto> list = vote.voteList(); Gson json = new Gson(); // JASON 객체생성
-	 * resp.setContentType("text/html;charset=utf-8");
-	 * 
-	 * 
-	 * PrintWriter out = resp.getWriter(); out.print(json.toJson(list)); //
-	 * out.print 내용을 ajax의 dataType이 jason에게 데이터 쏴줌
-	 * 
-	 * }
-	 */
-	
+	//투표 하기 
 	
 }

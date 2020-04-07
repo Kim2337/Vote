@@ -3,14 +3,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>투표 목록</title>
+<title>투표 게시판</title>
 <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
 </head>
 
 <script>
 $(document).ready(function(){
 	$("#btnWrite").click(function(){
-		location.href="${path}/vote/write.do";
+		location.href="vote/write.do";
 		});
 });
 </script>
@@ -27,8 +27,8 @@ $(document).ready(function(){
   </tr>
   <c:forEach var="row" items="${list }">
   <tr>
-    <td>${row.votenum }</td>
-    <td><a href="${path}/vote/view.do?votenum=${row.votenum}">${row.title }</a></td>
+    <td>${row.votenum}</td>
+    <td><a href="vote/view.do?votenum=${row.votenum}">${row.title }</a></td>
     <td>${row.subtitle}</td>
     </tr>
     </c:forEach>
