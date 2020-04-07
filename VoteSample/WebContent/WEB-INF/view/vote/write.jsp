@@ -4,13 +4,13 @@
 <html>
 <head>
 <title>투표 작성</title>
-
+<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
 <script>
   $(document).ready(function(){
 	  $("#btnSave").click(function(){
-		  var title = $("title").val();
-		  var subtitle = $("subtitle").val();
-		  var content = $("content").val();
+		  var title = $("#title").val();
+		  var subtitle = $("#subtitle").val();
+		  var content = $("#content").val();
 		  if (title==""){
 			  alert("제목을 입력하세요");
 			  document.form1.title.focus();
@@ -23,15 +23,15 @@
 			  }
 		  document.form1.submit();
 		  });
-	  /* 항목추가 버튼 클릭 시 입력폼 나오도록 */
-
+	  
+	  
 	  });
 </script>
 
 </head>
 <body>
 <h2>게시글 작성</h2>
-<form name="form1" method="post" action="vote/insert.do">
+<form name="form1" method="post" action="insert.do">
 
   <div>
     제목 : <input name="title" id="title" size="80" placeholder="제목을 입력하세요"/>

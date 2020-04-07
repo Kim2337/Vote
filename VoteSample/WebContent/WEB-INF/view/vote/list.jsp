@@ -25,11 +25,12 @@ $(document).ready(function(){
     <th>상세내용</th>
     <th>작성자</th>
   </tr>
-  <c:forEach var="row" items="${list }">
+  <c:forEach var="row" items="${list}">
   <tr>
     <td>${row.votenum}</td>
     <td><a href="vote/view.do?votenum=${row.votenum}">${row.title }</a></td>
     <td>${row.subtitle}</td>
+    <td>${row.empno }</td>
     </tr>
     </c:forEach>
 </table>

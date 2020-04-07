@@ -48,7 +48,7 @@ public class VoteController {
 	}
 	
 	//투표글 작성처리  
-	@RequestMapping(value="vote/insert.do", method = RequestMethod.POST)
+	@RequestMapping(value="/insert.do", method = RequestMethod.POST)
 	public String insert(@ModelAttribute VoteDto dto) throws Exception{
 		service.write(dto);
 		return "redirect:list.do";
